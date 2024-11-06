@@ -1,4 +1,4 @@
-# SPOTIFY_EDA_INCENTIVES_2ECEA_DOMINGO-M
+# Python - Exploratory Data Analysis on Spotify 2023 Dataset
 
 ---
 
