@@ -6,12 +6,13 @@
 -  #### $\mathbf{\color{lightblue}{Project\ Overview}}$
 
   
--  #### $\color{lightblue}{Objective}$
+-  #### $\mathbf{\color{lightblue}{Objective}}$
+
   
 ---
 ## Table of Contents
 - [Introduction](#Introduction)
-    - [Project Overview](#Project-Overview)
+    - [Project Overview](#$\mathbf{\color{lightblue}{Project\-Overview}}$)
     - [Objective](#Objective)
 - [Table of Contents](#Table-of-Contents)
 - [Dataset Overview](#Dataset-Overview)
@@ -63,7 +64,7 @@
 ## License 
 #### Jupyter Notebook is a software licensed under the [BSD License](https://jupyter.org/governance/projectlicense.html). 
 ---
-## $\color{lightblue}{Author}$
+## Author
 ---
 ## Version History
 ---
