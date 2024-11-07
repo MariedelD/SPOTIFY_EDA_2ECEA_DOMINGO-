@@ -1,7 +1,13 @@
 <h1 align="center">Python - Exploratory Data Analysis on Spotify 2023 Dataset
-
+    
 ---
+
 ## Introduction
+-  #### $\mathbf{\color{lightblue}{Project\ Overview}}$
+
+  
+-  #### $\color{lightblue}{Objective}$
+  
 ---
 ## Table of Contents
 - [Introduction](#Introduction)
@@ -35,6 +41,7 @@
     - [Key and Mode Analysis](#Key-and-ModeAnalysis)
     - [Frequent Artists in Playlists](#Frequent-Artists-in-Playlists)
 - [Conclusion](#Conclusion)
+- [License](#License)
 - [Author](#Author)
 - [Version History](#Version-History)
 
@@ -54,10 +61,11 @@
 ## Conclusion
 ---
 ## License 
-Jupyter Notebook is a software licensed under the [BSD License](https://jupyter.org/governance/projectlicense.html) 
+#### Jupyter Notebook is a software licensed under the [BSD License](https://jupyter.org/governance/projectlicense.html). 
 ---
 ## Author
 ---
 ## Version History
 ---
+
 
