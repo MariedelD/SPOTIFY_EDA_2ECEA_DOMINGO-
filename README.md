@@ -12,7 +12,7 @@
 ---
 ## Table of Contents
 - [Introduction](#Introduction)
-    - [Project Overview](#$\mathbf{\color{lightblue}{Project\-Overview}}$)
+    - [Project Overview](#Project-Overview)
     - [Objective](#Objective)
 - [Table of Contents](#Table-of-Contents)
 - [Dataset Overview](#Dataset-Overview)
@@ -43,7 +43,7 @@
     - [Frequent Artists in Playlists](#Frequent-Artists-in-Playlists)
 - [Conclusion](#Conclusion)
 - [License](#License)
-- [Author](#Author)
+- [Author](#$\mathbf{\color{lightblue}{Author}}$)
 - [Version History](#Version-History)
 
 ---
@@ -64,7 +64,7 @@
 ## License 
 #### Jupyter Notebook is a software licensed under the [BSD License](https://jupyter.org/governance/projectlicense.html). 
 ---
-## Author
+## $\mathbf{\color{lightblue}{Author}}$
 ---
 ## Version History
 ---
