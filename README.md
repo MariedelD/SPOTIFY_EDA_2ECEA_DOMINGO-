@@ -71,11 +71,10 @@ This project aims to **$\color{violet}{uncover\ the\ secrets\ behind\ music\ pop
 #### After downloading the file, **$\color{lightblue}{utilize\ the\ following\ import\ conventions}$** to access the various libraries that will be used throughout the program.
 
 ```python
-import numpy as np
 import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-from math import *
 ```
 
 #### To enable the code to read the dataset, using encoding='latin-1' will help load the .csv file, and this function will store the data in the variable df.
@@ -92,10 +91,30 @@ df
   
 ---
 ## Data Preprocessing
-####
+#### Given the large amount of data, checking each column individually for completeness is challenging. This section outlines each column's data type and identifies any missing values to ensure the dataset's quality and reliability.
+---
+-  ### Data Types
+-  ### Non-null Counts
 ---
 ## Key Insights and Analysis
-####
+#### This part dives into an in-depth analysis of the dataset, exploring key statistics, standout tracks, and release trends to uncover noticeable patterns and unique insights.
+---
+### Basic Descriptive Statistics
+- #### Stream Stats
+ A statistical breakdown of stream counts, where the calculated mean, median, and standard deviation of the streams column is presented.
+
+- #### Release Trends
+This visualization offers a snapshot of the annual release trends.
+  
+- #### Artist Frequency
+Here, illustrate a plot that reveals the extent of collaboration in the music industry, showing the number of artists per track.
+
+---
+###  Top Performers
+- #### Most Streamed Tracks
+This section highlights the top-performing tracks, revealing the true music sensations.
+
+- #### Top Artists
 ---
 ## Temporal Trends in Music Releases
 ####
