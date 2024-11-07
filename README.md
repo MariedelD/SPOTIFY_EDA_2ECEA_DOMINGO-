@@ -53,6 +53,9 @@
 ---
 ## Conclusion
 ---
+## License 
+Jupyter Notebook is a software licensed under the [BSD License](https://jupyter.org/governance/projectlicense.html) 
+---
 ## Author
 ---
 ## Version History
