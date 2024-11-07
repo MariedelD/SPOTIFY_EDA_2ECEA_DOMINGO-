@@ -42,7 +42,7 @@ This project aims to **$\color{violet}{uncover\ the\ secrets\ behind\ music\ pop
     - [Tracks Released Over Time](#Tracks-Released-OverTime)
     - [Top Release Years](#Top-Release-Years)
 - [Musical Attributes and Popularity](#Musical-Attributes-and-Popularity)
-    - [WhatMakesaHit?](#What-Makes-a-Hit?)
+    - [What Makes a Hit?](#What-Makes-a-Hit?)
     - [The Rhythm and the Beat](#The-Rhythm-and-the-Beat)
     - [Mood Tones](#Mood-Tones)
 - [Audience Preferences](#Audience-Preferences)
@@ -115,15 +115,65 @@ Here, illustrate a plot that reveals the extent of collaboration in the music in
 This section highlights the top-performing tracks, revealing the true music sensations.
 
 - #### Top Artists
+This section highlights the top 5 artists with the most tracks in the dataset, showcasing their popularity and influence.
+
 ---
 ## Temporal Trends in Music Releases
 ####
 ---
+
+### Tracks Released Over Time
+####
+
+---
+
+### Top Release Years
+#### 
+
+--- 
 ## Musical Attributes and Popularity
 ####
 ---
+
+### What Makes a Hit?
+#### 
+
+--
+ 
+### The Rhythm and the Beat
+#### 
+
+---
+
+### Mood Tones
+####
+
+---
 ## Audience Preferences
 ####
+---
+
+### Audience Preferences
+####
+
+---
+
+### Platform Comparison
+####
+
+---
+## Advanced Analysis
+####
+---
+
+### Key and Mode Analysis
+####
+
+--- 
+
+### Frequent Artists in Playlists
+####
+
 ---
 ## Conclusion
 ####
