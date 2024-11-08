@@ -94,7 +94,91 @@ df
 #### Given the large amount of data, checking each column individually for completeness is challenging. This section outlines each column's data type and identifies any missing values to ensure the dataset's quality and reliability.
 ---
 -  ### Data Types
+To better understand the dataset, identifying the data types of each column is essential for selecting the most effective Python operations. This section provides a detailed breakdown of the dataset's structure.
+
+Using dtypes function from pandas library, this will help indicate what are the data type stored in each column.
+
+```python
+data_types = df.dtypes
+print("Data Types of Each Column:\n", data_types)
+```
+
+##### Table 2.0. The Column Data Types Overview
+| **$\color{Pink}{Column\ Name}$**     | **$\color{Pink}{ Data\ Type  }$**      |   
+| ------------- |:-------------:| 
+| track_name                        |    Object     | 
+| artist(s)_name           |      Object        | 
+| artist_count           |     int64     | 
+| released_year            |     int64     | 
+| released_month            |     int64      | 
+|released_day           |     int64     | 
+| in_spotify_playlists            |     int64     | 
+| in_spotify_charts            |     int64      | 
+| streams            |    Object      | 
+| in_apple_charts           |    int64     | 
+| in_apple_playlists          |     int64     | 
+| in_deezer_playlists           |     Object    | 
+| in_deezer_charts           |     int64     | 
+|in_shazam_charts          |     Object   | 
+| bpm          |   int64     | 
+| key          |     Object      | 
+| mode         |     Object     | 
+|danceability_%           |    int64      | 
+| valence_%|     int64      | 
+| energy_%            |    int64      | 
+| acousticness_%           |    int64      | 
+| instrumentalness_%          |     int64      | 
+| liveness_%          |     int64    | 
+| speechiness_%          |    int64      | 
+
+Table 2.0 indicates that the dataset includes two primary data types: **$\color{Pink}{int64\ for\ 17\ columns}$** containing numerical values, and **$\color{Pink}{object\ for\ 7\ columns }$** containing text or categorical information.
+
 -  ### Non-null Counts
+Recognizing missing values is key to ensuring data accuracy and minimizing potential errors. Here, a table displays the count of values present in each column.
+
+By employing the .isnull() function, this code checks for missing values, and then the .sum() function totals all the number of missing values in each column. The outcome is stored in the variable missing_values.
+
+```python
+missing_values = df.isnull().sum()
+print("\nMissing Values in Each Column:\n", missing_values)
+```
+
+This function displays the total missing values for each column.
+```python
+total_missing = missing_values.sum()
+print(f"\nTotal Missing Values in the Dataset: {total_missing}")
+```
+
+##### Table 2.1. Summary of Missing Values per Column
+| **$\color{Pink}{Column\ Name}$**     | **$\color{Pink}{ Number\ of\ Missing\ Values  }$**      |   
+| ------------- |:-------------:| 
+| track_name                        |   0     | 
+| artist(s)_name           |     0       | 
+| artist_count           |     0    | 
+| released_year            |     0     | 
+| released_month            |     0     | 
+|released_day           |    0     | 
+| in_spotify_playlists            |    0    | 
+| in_spotify_charts            |   0      | 
+| streams            |    0      | 
+| in_apple_charts           |   0   | 
+| in_apple_playlists          |     0    | 
+| in_deezer_playlists           |     0    | 
+| in_deezer_charts           |     0    | 
+|in_shazam_charts          |     50  | 
+| bpm          |   0    | 
+| key          |    95     | 
+| mode         |     0    | 
+|danceability_%           |    0     | 
+| valence_%|     0     | 
+| energy_%            |    0     | 
+| acousticness_%           |   0     | 
+| instrumentalness_%          |     0     | 
+| liveness_%          |    0    | 
+| speechiness_%          |   0      | 
+
+As shown in Table 2.1, the dataset has a **$\color{Pink}{total\ of\ 145\ missing\ values }$** across all columns.
+
 ---
 ## Key Insights and Analysis
 #### This part dives into an in-depth analysis of the dataset, exploring key statistics, standout tracks, and release trends to uncover noticeable patterns and unique insights.
