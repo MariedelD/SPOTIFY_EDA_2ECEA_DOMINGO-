@@ -83,7 +83,7 @@ import seaborn as sns
 df = pd.read_csv('spotify-2023.csv', encoding='latin-1')
 df
 ```
-##### Table 1.1. The Most Streamed Spotify Songs 2023 dataset
+##### Table 1.1. The Most Streamed Spotify Songs 2023 dataset.
 ![image](https://github.com/user-attachments/assets/e54e02a3-15f8-4a55-b454-a7d4c5770009)
 
 - ### Rows and Columns 
@@ -103,7 +103,7 @@ data_types = df.dtypes
 print("Data Types of Each Column:\n", data_types)
 ```
 
-##### Table 2.0. The Column Data Types Overview
+##### Table 2.0. The Column Data Types Overview.
 | **$\color{Pink}{Column\ Name}$**     | **$\color{Pink}{ Data\ Type  }$**      |   
 | ------------- |:-------------:| 
 | track_name                        |    Object     | 
@@ -149,7 +149,7 @@ total_missing = missing_values.sum()
 print(f"\nTotal Missing Values in the Dataset: {total_missing}")
 ```
 
-##### Table 2.1. Summary of Missing Values per Column
+##### Table 2.1. The Summary of Missing Values per Column.
 | **$\color{Pink}{Column\ Name}$**     | **$\color{Pink}{ Number\ of\ Missing\ Values  }$**      |   
 | ------------- |:-------------:| 
 | track_name                        |   0     | 
@@ -177,29 +177,115 @@ print(f"\nTotal Missing Values in the Dataset: {total_missing}")
 | liveness_%          |    0    | 
 | speechiness_%          |   0      | 
 
-As shown in Table 2.1, the dataset has a **$\color{Pink}{total\ of\ 145\ missing\ values }$** across all columns.
+As shown in Table 2.1, the dataset has a **$\color{Pink}{total\ of\ 145\ missing\ values }$** across all columns, with the highest number of missing values found in  **$\color{Pink}{in_shazam_charts\ and\ key.}$** 
 
 ---
 ## Key Insights and Analysis
 #### This part dives into an in-depth analysis of the dataset, exploring key statistics, standout tracks, and release trends to uncover noticeable patterns and unique insights.
 ---
-### Basic Descriptive Statistics
-- #### Stream Stats
+## Basic Descriptive Statistics
+- ### Stream Stats
  A statistical breakdown of stream counts, where the calculated mean, median, and standard deviation of the streams column is presented.
 
-- #### Release Trends
+Given that the data type of the streams is an object, we can convert it to numeric using pd.to_numeric. This allows us to calculate the mean, median, and standard deviation using the .mean() function.
+
+```python
+mean_streams = pd.to_numeric(df['streams'], errors='coerce').mean()
+median_streams = pd.to_numeric(df['streams'], errors='coerce').median()
+std_streams = pd.to_numeric(df['streams'], errors='coerce').std()
+```
+
+This function displays the calculated mean, median, and standard deviation from the previous function.
+
+```python
+print("Descriptive statistics for streams")
+print("Mean: ", mean_streams)
+print("Median: ", median_streams)
+print("Standard deviation: ", std_streams)
+```
+### Table 3.0. The Descriptive statistics for streams
+| Metric             | Value                |
+|--------------------|----------------------|
+| $\mathbf{\color{Red}{Mean}}$  | 514137424.93907565      |
+| $\mathbf{\color{orange}{Median}}$       | 290530915.0      |
+| $\mathbf{\color{yellow}{Standard Deviation}}$ | 566856949.0388832 |
+
+- ### Release Trends
 This visualization offers a snapshot of the annual release trends.
-  
-- #### Artist Frequency
+
+```python
+sns.set(style="whitegrid")
+plt.figure(figsize=(10, 6))
+sns.histplot(df["released_year"], bins=5, color="darkred")
+```
+
+```python
+plt.xlabel("Released Year", fontsize=12)
+plt.ylabel("Number of Tracks", fontsize=12)
+plt.title("Distribution of Tracks Released Each Year", fontsize=14, fontweight="bold")
+```
+
+```python
+eak_year = df["released_year"].value_counts()
+max_count = peak_year.max()
+peak_year = peak_year[peak_year == max_count].index.tolist()  # List of years with peak values
+plt.axvline(x=peak_year, color='violet', linestyle='--', label=f'Peak Year: {peak_year}')
+```
+
+Dsiplays visual representation of how distribution of tracks were released each year.
+```python
+plt.legend(title="Peak Year")
+plt.show()
+```
+### Figure 1.0. 
+![image](https://github.com/user-attachments/assets/cd059c52-aed6-4fcc-895b-bc8de95a97da)
+
+
+- ### Artist Frequency
 Here, illustrate a plot that reveals the extent of collaboration in the music industry, showing the number of artists per track.
 
+```python
+sns.set(style="whitegrid")
+plt.figure(figsize=(8, 6))
+sns.countplot(y="artist_count", hue="artist_count", data=df, palette="Spectral", dodge=False, legend=False)
+```
+
+
+```python
+plt.ylabel("Number of Artists per Track", fontsize=12)
+plt.xlabel("Number of Tracks", fontsize=12)
+plt.title("Distribution of Artist Count for Each Track", fontsize=14, fontweight="bold")
+plt.show()
+```
+
+### Figure 1.1. 
+![image](https://github.com/user-attachments/assets/b63d3bb1-2a0c-4e87-b1d4-3a9c7183351e)
+
 ---
-###  Top Performers
-- #### Most Streamed Tracks
+##  Top Performers
+- ### Most Streamed Tracks
 This section highlights the top-performing tracks, revealing the true music sensations.
 
-- #### Top Artists
+Since the 'streams' column is an object data type, it is necessary to convert it to numeric in order to use the nlargest function, which will be utilized to provide the top 5 most streamed tracks.
+
+```python
+df['streams'] = pd.to_numeric(df['streams'], errors='coerce')
+most_streamed_tracks = df[['track_name', 'streams']].nlargest(5, 'streams')
+```
+
+```python
+print("Top 5 Most Streamed Tracks:\n", most_streamed_tracks )
+```
+
+- ### Top Artists
 This section highlights the top 5 artists with the most tracks in the dataset, showcasing their popularity and influence.
+
+By using the .value_counts() function, the code counts the frequency of each artist in the 'artist(s)_name' column. Then, by applying the .head(5) function, it gets the top 5 most frequently appearing artists based on the number of tracks.
+
+```python
+top_artists = df['artist(s)_name'].value_counts().head(5)
+print("\nTop 5 most Frequent Artists by Number of Tracks:\n", top_artists)
+```
 
 ---
 ## Temporal Trends in Music Releases
@@ -209,10 +295,15 @@ This section highlights the top 5 artists with the most tracks in the dataset, s
 ### Tracks Released Over Time
 ####
 
+
+![image](https://github.com/user-attachments/assets/5f9f3b41-e813-427f-8ace-05d8547d6b79)
+
 ---
 
 ### Top Release Years
 #### 
+
+![image](https://github.com/user-attachments/assets/587d4e85-59e2-42eb-8285-ea6aefee15ab)
 
 --- 
 ## Musical Attributes and Popularity
