@@ -277,6 +277,15 @@ most_streamed_tracks = df[['track_name', 'streams']].nlargest(5, 'streams')
 print("Top 5 Most Streamed Tracks:\n", most_streamed_tracks )
 ```
 
+### Table 4.0. The Top 5 Most Streamed Tracks.
+|$\mathbf{\color{Red}{#}}$       | $\mathbf{\color{Red}{Track\ Name}}$     |  $\mathbf{\color{Red}{Streams}}$       |  
+| ------------- |:-------------:| :-------------:|
+| 1          |     Blinding Lights      | 3.703895e+09|   
+| 2          |     Shape of You    |3.562544e+09|   
+|3            |     Someone You Loved      |  2.887242e+09|   
+| 4            |     Dance Monkey      |  2.864792e+09|   
+| 5            |    Sunflower - Spider-Man: Into the Spider-Verse      |2.808097e+09|   
+
 - ### Top Artists
 This section highlights the top 5 artists with the most tracks in the dataset, showcasing their popularity and influence.
 
@@ -287,22 +296,98 @@ top_artists = df['artist(s)_name'].value_counts().head(5)
 print("\nTop 5 most Frequent Artists by Number of Tracks:\n", top_artists)
 ```
 
+### Table 4.0. The Top 5 most Frequent Artists by Number of Tracks.
+|$\mathbf{\color{lightblue}{Artist\ Name}}$       | $\mathbf{\color{lightblue}{Track\ Count}}$     | 
+| ------------- |:-------------:| 
+| Taylor Swift        |     34     | 
+| The Weeknd        |    22  | 
+|Bad Bunny           |    19     |  
+| SZA                |    19      |  
+| Harry Styles          |    17     |
+
+Table 4.0 reveals the collaborative dynamics within the music industry, showcasing how many times each unique combination of artists appears in the dataset, focusing on counting the frequency of artist pairings and group collaborations.
 ---
 ## Temporal Trends in Music Releases
-####
+#### To identify the golden era of music releases, we delved deeper into the data. By analyzing the distribution of releases across different years and months, we aim to uncover the peak years in the music industry.
 ---
 
 ### Tracks Released Over Time
-####
+The first stop in this section takes a deeper dive into analyzing the year that marked significant peaks in music releases, which identifies the key year that may have influenced the popularity and evolution of music over time.
+
+Stored in the variable releases_per_year, the groupby() function groups the dataset that is in the values in the 'released_year' column. After grouping the values, using the .size() function it wil helps count the number of tracks released in each year.
+
+```python
+releases_per_year = df.groupby('released_year').size()
+```
+
+To analyze trends, the plt.figure() function is used to create a plot based on the values stored in the releases_per_year variable.
+
+```python
+plt.figure(figsize=(10, 6))
+releases_per_year.plot(kind='area', color='pink', alpha=1)
+```
+
+Utilizing the .idxmax() function, this will find the year with the highest value in the graph.
+```python
+max_year = releases_per_year.idxmax() 
+```
+ 
+
+By using the .max() function, this will identify the highest value plotted in the graph.
+```python
+max_value = releases_per_year.max() 
+```
 
 
+This function will display the maximum values along with the corresponding year.
+```python
+plt.scatter(max_year, max_value, color='darkblue', s=100, zorder=5, label='Max Releases')
+```
+
+On the other hand, the following function helps the user understand the graph better by adding titles, x-labels, and y-labels.
+```python
+plt.title('Number of Tracks Released per Year (Max: ' + str(max_value) + ' in ' + str(max_year) + ')', fontsize=16, fontweight='bold')
+plt.xlabel('Year')
+plt.ylabel('Number of Tracks')
+plt.xticks(rotation=45)
+plt.grid(axis='y')
+```
+
+Displays the graph along with its legend.
+```python
+plt.legend()
+plt.show()
+```
+
+### Figure 2.0. 
 ![image](https://github.com/user-attachments/assets/5f9f3b41-e813-427f-8ace-05d8547d6b79)
 
 ---
 
-### Top Release Years
-#### 
+### Track Released per Month
+Next, we investigate the seasonal trends in music releases, identifying the months that are most popular for artists to showcase their new tracks.
 
+Similar to the previous code, the .value_counts() function is used to count the number of tracks released per month Then, by utilizing .sort_index(), it sorts the values by their index.
+```python
+releases_per_month = df['released_month'].value_counts().sort_index()
+```
+
+This function improves the user's comprehension of the graph by including titles, x-axis labels, and y-axis labels.
+```python
+plt.figure(figsize=(8, 6))
+sns.barplot(x=releases_per_month.index, y=releases_per_month.values, palette="rainbow")
+plt.title('Number of Tracks Released per Month', fontsize=16, fontweight='bold')
+plt.xlabel('Month', fontsize=14)
+plt.ylabel('Number of Tracks', fontsize=14)
+plt.xticks(ticks=range(0,12), labels=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'])
+```
+
+Displays the gathered values on the graph
+```python
+plt.show()
+```
+
+### Figure 2.1. 
 ![image](https://github.com/user-attachments/assets/587d4e85-59e2-42eb-8285-ea6aefee15ab)
 
 --- 
@@ -326,11 +411,6 @@ print("\nTop 5 most Frequent Artists by Number of Tracks:\n", top_artists)
 ---
 ## Audience Preferences
 ####
----
-
-### Audience Preferences
-####
-
 ---
 
 ### Platform Comparison
