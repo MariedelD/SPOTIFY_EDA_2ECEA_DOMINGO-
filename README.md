@@ -296,7 +296,7 @@ top_artists = df['artist(s)_name'].value_counts().head(5)
 print("\nTop 5 most Frequent Artists by Number of Tracks:\n", top_artists)
 ```
 
-### Table 4.0. The Top 5 most Frequent Artists by Number of Tracks.
+### Table 4.1. The Top 5 most Frequent Artists by Number of Tracks.
 |$\mathbf{\color{lightblue}{Artist\ Name}}$       | $\mathbf{\color{lightblue}{Track\ Count}}$     | 
 | ------------- |:-------------:| 
 | Taylor Swift        |     34     | 
@@ -305,7 +305,8 @@ print("\nTop 5 most Frequent Artists by Number of Tracks:\n", top_artists)
 | SZA                |    19      |  
 | Harry Styles          |    17     |
 
-Table 4.0 reveals the collaborative dynamics within the music industry, showcasing how many times each unique combination of artists appears in the dataset, focusing on counting the frequency of artist pairings and group collaborations.
+#### Table 4.1 reveals the collaborative dynamics within the music industry, showcasing how many times each unique combination of artists appears in the dataset, focusing on counting the frequency of artist pairings and group collaborations.
+
 ---
 ## Temporal Trends in Music Releases
 #### To identify the golden era of music releases, we delved deeper into the data. By analyzing the distribution of releases across different years and months, we aim to uncover the peak years in the music industry.
