@@ -2,7 +2,7 @@
     
 ---
 
-## Introduction
+# **INTRODUCTION**
 
 -  ### Project Overview
 
@@ -19,46 +19,49 @@ This project aims to **$\color{violet}{uncover\ the\ secrets\ behind\ music\ pop
 5. **$\color{crimson}{Provide\ insights}$** or recommendations based on the analysis and interpretations gathered.
 
 ---
-## Table of Contents
-- [Introduction](#Introduction)
-    - [Project Overview](#Project-Overview)
-    - [Objective](#Objective)
-- [Table of Contents](#Table-of-Contents)
-- [Dataset Overview](#Dataset-Overview)
-    - [Dataset Structure](#Dataset-Structure)
-    - [Rows and Columns](#Rows-and-Columns)
-- [Data Preprocessing](#Data-Preprocessing)
-     - [Data Types](#Data-Types)
-     - [Non-null Counts](#Non-null-Counts)
-- [Key Insights and Analysis](#Key-Insights-and-Analysis)
-    - [Basic Descriptive Statistics](#Basic-Descriptive-Statistics)
-        - [Stream Stats](#Stream-Stats)
-        - [Release Trends](#Release-Trends)
-        - [Artist Frequency](#Artist-Frequency)
-    - [Top Performers](#Top-Performers)
-        - [Most Streamed Tracks](#Most-Streamed-Tracks)
-        - [Top Artists](#Top-Artists)
-- [Temporal Trends in Music Releases](#Temporal-Trends-in-Music-Releases)
-    - [Tracks Released Over Time](#Tracks-Released-OverTime)
-    - [Top Release Years](#Top-Release-Years)
-- [Musical Attributes and Popularity](#Musical-Attributes-and-Popularity)
-    - [What Makes a Hit?](#What-Makes-a-Hit?)
-    - [The Rhythm and the Beat](#The-Rhythm-and-the-Beat)
-    - [Mood Tones](#Mood-Tones)
-- [Audience Preferences](#Audience-Preferences)
-- [Advanced Analysis](#Advanced-Analysis)
-    - [Key and Mode Analysis](#Key-and-ModeAnalysis)
-    - [Frequent Artists in Playlists](#Frequent-Artists-in-Playlists)
-- [Conclusion](#Conclusion)
-- [License](#License)
-- [Author](#$\mathbf{\color{lightblue}{Author}}$)
-- [Version History](#Version-History)
+## TABLE OF CONTENTS
+- [INTRODUCTION](#INTRODUCTION)
+    - [Project Overview](#PROJECT-OVERVIEW)
+    - [Objective](#OBJECTIVE)
+- [TABLE OF CONTENTS](#TABLE-OF-CONTENTS)
+- [DATASET OVERVIEW](#DATASET-OVERVIEW)
+    - [Dataset Structure](#DATASET-STRUCTURE)
+    - [Rows and Columns](#ROWS-AND-COLUMNS)
+- [DATA PREPROCESSING](#DATA-PREPROCESSING)
+     - [Data Types](#DATA-TYPES)
+     - [Non-null Counts](#NON-NULL-COUNTS)
+- [KEY INSIGHTS AND ANALYSIS](#KEY-INSIGHTS-AND-ANALYSIS)
+    - [Basic Descriptive Statistics](#BASIC-DESCRIPTIVE-STATISTICS)
+        - [Stream Stats](#STREAM-STATS)
+        - [Release Trends](#RELEASE-TRENDS)
+        - [Artist Frequency](#ARTIST-FREQUENCY)
+    - [Top Performers](#TOP-PERFORMERS)
+        - [Most Streamed Tracks](#MOST-STREAMED-TRACKS)
+        - [Top Artists](#TOP-ARTISTS)
+- [TEMPORAL TRENDS IN MUSIC RELEASES](#TEMPORAL-TRENDS-IN-MUSIC-RELEASES)
+    - [Tracks Released Over Time](#TRACKS-RELEASED-OVERTIME)
+    - [Top Release Years](#TOP-RELEASE-YEARS)
+- [MUSICAL ATTRIBUTES AND POPULARITY](#MUSICAL-ATTRIBUTES-AND-POPULARITY)
+    - [What Makes a Hit?](#WHAT-MAKES-A-HIT?)
+    - [The Rhythm and the Beat](#THE-RHYTHM-AND-THE-BEAT)
+    - [Mood Tones](#MOOD-TONES)
+- [AUDIENCE PREFERENCES](#AUDIENCE-PREFERENCES)
+- [ADVANCED ANALYSIS](#ADVANCED-ANALYSIS)
+    - [Key and Mode Analysis](#KEY-AND-MODEANALYSIS)
+    - [Frequent Artists in Playlists](#FREQUENT-ARTISTS-IN-PLAYLISTS)
+- [CONCLUSION](#CONCLUSION)
+- [LICENSE](#LICENSE)
+- [AUTHOR](#$\mathbf{\color{lightblue}{AUTHOR}}$)
+- [VERSION HISTORY](#VERSION-HISTORY)
+
 
 ---
-## Dataset Overview
+# DATASET OVERVIEW
 #### Before delving into the analysis, this section provides the overview of the dataset's structure and content, which is essential for analyzing the trends and patters.
 ---
+🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
 - ### Dataset Structure
+🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
 
 > [!IMPORTANT]
 > Download the Most Streamed Spotify Songs 2023 dataset.
@@ -82,18 +85,24 @@ import seaborn as sns
 df = pd.read_csv('spotify-2023.csv', encoding='latin-1')
 df
 ```
-##### Table 1.1. The Most Streamed Spotify Songs 2023 dataset.
+##### Table 1.0. The Most Streamed Spotify Songs 2023 dataset.
 ![image](https://github.com/user-attachments/assets/e54e02a3-15f8-4a55-b454-a7d4c5770009)
 
-- ### Rows and Columns 
+🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
+- ### Rows and Columns
+🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
 #### Table 1.0 provides a comprehensive overview of **$\color{lightgreen}{953}$** of Spotify's most-streamed songs with **$\color{lightgreen}{24}$** columns, containing their release dates, musical attributes, and platform performance, which will be used for further analysis.
   
 ---
-## Data Preprocessing
+# DATA PROCESSING
 #### Given the large amount of data, checking each column individually for completeness is challenging. This section outlines each column's data type and identifies any missing values to ensure the dataset's quality and reliability.
 ---
+
+🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
 -  ### Data Types
 To better understand the dataset, identifying the data types of each column is essential for selecting the most effective Python operations. This section provides a detailed breakdown of the dataset's structure.
+
+🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
 
 Using dtypes function from pandas library, this will help indicate what are the data type stored in each column.
 
@@ -132,8 +141,11 @@ print("Data Types of Each Column:\n", data_types)
 
 Table 2.0 indicates that the dataset includes two primary data types: **$\color{Pink}{int64\ for\ 17\ columns}$** containing numerical values, and **$\color{Pink}{object\ for\ 7\ columns }$** containing text or categorical information.
 
+🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
 -  ### Non-null Counts
 Recognizing missing values is key to ensuring data accuracy and minimizing potential errors. Here, a table displays the count of values present in each column.
+
+🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
 
 By employing the .isnull() function, this code checks for missing values, and then the .sum() function totals all the number of missing values in each column. The outcome is stored in the variable missing_values.
 
@@ -179,12 +191,16 @@ print(f"\nTotal Missing Values in the Dataset: {total_missing}")
 As shown in Table 2.1, the dataset has a **$\color{Pink}{total\ of\ 145\ missing\ values }$** across all columns, with the highest number of missing values found in  **$\color{Pink}{in_shazam_charts\ and\ key.}$** 
 
 ---
-## Key Insights and Analysis
+# KEY INSIGHTS AND ANALYSIS
 #### This part dives into an in-depth analysis of the dataset, exploring key statistics, standout tracks, and release trends to uncover noticeable patterns and unique insights.
 ---
 ## Basic Descriptive Statistics
+
+🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
 - ### Stream Stats
  A statistical breakdown of stream counts, where the calculated mean, median, and standard deviation of the streams column is presented.
+
+🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
 
 Given that the data type of the streams is an object, we can convert it to numeric using pd.to_numeric. This allows us to calculate the mean, median, and standard deviation using the .mean() function.
 
@@ -209,23 +225,27 @@ print("Standard deviation: ", std_streams)
 | $\mathbf{\color{orange}{Median}}$       | 290530915.0      |
 | $\mathbf{\color{yellow}{Standard Deviation}}$ | 566856949.0388832 |
 
+Table 3.0 shows that the average  is higher than the median, indicating that most tracks have fewer streams, but a few tracks have very high streams. On the otherhand, the standard deviation shows that the streams vary a lot between different tracks.
+
+🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
 - ### Release Trends
 This visualization offers a snapshot of the annual release trends.
 
+🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
+
+If you want to design your graph and make it more appealing, you can use the following code to add colors, labels, and other design elements that will enhance the visual quality of your graph.
 ```python
 sns.set(style="whitegrid")
 plt.figure(figsize=(10, 6))
 sns.histplot(df["released_year"], bins=5, color="darkred")
-```
-
-```python
 plt.xlabel("Released Year", fontsize=12)
 plt.ylabel("Number of Tracks", fontsize=12)
 plt.title("Distribution of Tracks Released Each Year", fontsize=14, fontweight="bold")
 ```
 
+This code counts the number of tracks released each year and visualizes the data in a graph to show which year had the highest number of track releases.
 ```python
-eak_year = df["released_year"].value_counts()
+peak_year = df["released_year"].value_counts()
 max_count = peak_year.max()
 peak_year = peak_year[peak_year == max_count].index.tolist()  # List of years with peak values
 plt.axvline(x=peak_year, color='violet', linestyle='--', label=f'Peak Year: {peak_year}')
@@ -239,18 +259,19 @@ plt.show()
 ### Figure 1.0. 
 ![image](https://github.com/user-attachments/assets/cd059c52-aed6-4fcc-895b-bc8de95a97da)
 
+As seen in the graph, the music industry began slowly in the 1960s, gradually picking up through the 2000s, but the peak year came in 2022, during the pandemic, when most people were staying at home.
 
+🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
 - ### Artist Frequency
 Here, illustrate a plot that reveals the extent of collaboration in the music industry, showing the number of artists per track.
 
+🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
+
+Plotting a visual representation of how the number of tracks is distributed among different artists.
 ```python
 sns.set(style="whitegrid")
 plt.figure(figsize=(8, 6))
 sns.countplot(y="artist_count", hue="artist_count", data=df, palette="Spectral", dodge=False, legend=False)
-```
-
-
-```python
 plt.ylabel("Number of Artists per Track", fontsize=12)
 plt.xlabel("Number of Tracks", fontsize=12)
 plt.title("Distribution of Artist Count for Each Track", fontsize=14, fontweight="bold")
@@ -260,10 +281,15 @@ plt.show()
 ### Figure 1.1. 
 ![image](https://github.com/user-attachments/assets/b63d3bb1-2a0c-4e87-b1d4-3a9c7183351e)
 
+The visual shows that the majority of released tracks were created by **$\color{violet}{solo\ artists.}$**, with fewer collaborations.
 ---
 ##  Top Performers
+
+🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
 - ### Most Streamed Tracks
 This section highlights the top-performing tracks, revealing the true music sensations.
+
+🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
 
 Since the 'streams' column is an object data type, it is necessary to convert it to numeric in order to use the nlargest function, which will be utilized to provide the top 5 most streamed tracks.
 
@@ -277,16 +303,21 @@ print("Top 5 Most Streamed Tracks:\n", most_streamed_tracks )
 ```
 
 ### Table 4.0. The Top 5 Most Streamed Tracks.
-| $\mathbf{\color{Red}{#}}$       | $\mathbf{\color{Red}{Track\ Name}}$     |  $\mathbf{\color{Red}{Streams}}$       |  
-| ------------- |:-------------:| :-------------:|
-| 1          |     Blinding Lights      | 3.703895e+09|   
-| 2          |     Shape of You    |3.562544e+09|   
-|3            |     Someone You Loved      |  2.887242e+09|   
-| 4            |     Dance Monkey      |  2.864792e+09|   
-| 5            |    Sunflower - Spider-Man: Into the Spider-Verse      |2.808097e+09|   
+| $\mathbf{\color{Red}{Rank}}$ | $\mathbf{\color{Red}{Track\ Name}}$  |  $\mathbf{\color{Red}{Streams}}$ |
+| --------------------------- |:----------------------------------:| :-----------------------------:|
+| 1                           | Blinding Lights                    | 3.703895e+09                   |
+| 2                           | Shape of You                        | 3.562544e+09                   |
+| 3                           | Someone You Loved                   | 2.887242e+09                   |
+| 4                           | Dance Monkey                         | 2.864792e+09                   |
+| 5                           | Sunflower - Spider-Man: Into the Spider-Verse | 2.808097e+09          |
 
+The table highlights the top 5 most-streamed tracks on Spotify, revealing listener preferences, with "Blinding Lights" by The Weeknd taking the lead as the most-streamed track.
+
+🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
 - ### Top Artists
 This section highlights the top 5 artists with the most tracks in the dataset, showcasing their popularity and influence.
+
+🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
 
 By using the .value_counts() function, the code counts the frequency of each artist in the 'artist(s)_name' column. Then, by applying the .head(5) function, it gets the top 5 most frequently appearing artists based on the number of tracks.
 
@@ -304,15 +335,18 @@ print("\nTop 5 most Frequent Artists by Number of Tracks:\n", top_artists)
 | SZA                |    19      |  
 | Harry Styles          |    17     |
 
-#### Table 4.1 reveals the collaborative dynamics within the music industry, showcasing how many times each unique combination of artists appears in the dataset, focusing on counting the frequency of artist pairings and group collaborations.
+Table 4.1 reveals the collaborative dynamics within the music industry, highlighting the frequency of artist pairings and group collaborations. While The Weeknd has the most-streamed track, Taylor Swift leads as the top artist with 34 collaborations, closely followed by The Weeknd with 22 collaborations.
 
 ---
-## Temporal Trends in Music Releases
+# TEMPORAL TRENDS IN MUSIC RELEASES
 #### To identify the golden era of music releases, we delved deeper into the data. By analyzing the distribution of releases across different years and months, we aim to uncover the peak years in the music industry.
 ---
 
+🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
 ### Tracks Released Over Time
 The first stop in this section takes a deeper dive into analyzing the year that marked significant peaks in music releases, which identifies the key year that may have influenced the popularity and evolution of music over time.
+
+🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
 
 Stored in the variable releases_per_year, the groupby() function groups the dataset that is in the values in the 'released_year' column. After grouping the values, using the .size() function it wil helps count the number of tracks released in each year.
 
@@ -362,10 +396,15 @@ plt.show()
 ### Figure 2.0. 
 ![image](https://github.com/user-attachments/assets/5f9f3b41-e813-427f-8ace-05d8547d6b79)
 
+As we observed earlier, 2022 marked the peak of music releases. Figure 2.0 illustrates the number of tracks released each year, and it’s clear that 2022 stood out with a remarkable 402 tracks being released during that year.
+
 ---
 
+🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
 ### Track Released per Month
 Next, we investigate the seasonal trends in music releases, identifying the months that are most popular for artists to showcase their new tracks.
+
+🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
 
 Similar to the previous code, the .value_counts() function is used to count the number of tracks released per month Then, by utilizing .sort_index(), it sorts the values by their index.
 ```python
@@ -390,13 +429,17 @@ plt.show()
 ### Figure 2.1. 
 ![image](https://github.com/user-attachments/assets/587d4e85-59e2-42eb-8285-ea6aefee15ab)
 
+On the other hand, when looking at the monthly release patterns, January and May stand out as the peak months, showing a significant surge in popular music during these times.
+
 --- 
-## Musical Attributes and Popularity
+# MUSICAL ATTRIBUTES AND POPULARITY
 In this section, we’ll take a look at what makes each track stand out and reach the top of the Spotify charts. Here, you’ll uncover the unique qualities that make these songs fan favorites, examining the connections between their musical attributes and streaming numbers. By understanding these factors, we can see why certain songs get so many streams and become big hits.
 ---
-
+🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
 ### What Makes a Hit?
 #### Ever wonder how a song rockets to Spotify's top? Here, you can uncover the musical ingredients that make tracks climb the charts!
+
+🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
 
 Stored in the correlation_with_streams variable, the .corr() function helps to find the correlation between the selected columns.
 ```python
@@ -462,10 +505,14 @@ Figure 3.0. The Correlation among Streams using Visual Representation
 ![image](https://github.com/user-attachments/assets/6909bec8-ec23-49dc-8449-fb504cc40d84)
 ![image](https://github.com/user-attachments/assets/def7353d-0066-4ed3-9bd9-6ca3af667323)
 
+The calculated correlation between streams and musical attributes reveals mostly negative values. Additionally, the visual representation shows that all the regression lines have a negative slope, indicating that these attributes don't significantly influence track popularity
+
 --
- 
+🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
 ### The Rhythm and the Beat
 #### Next, let's dive into the rhythm and beat! Calculating and plotting the correlation between Danceability and Energy to explore how these two atrributes come together and impact each other.
+
+🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
 
 Similarly, the .corr() function calculates the correlation between the selected columns. Here, Correlation between Danceability and Energy.
 ```python
@@ -498,9 +545,11 @@ Figure 3.1.
 ![image](https://github.com/user-attachments/assets/9abb3a34-37f7-4498-a0a1-89c8f140ed9c)
 
 ---
-
+🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
 ### Mood Tones
 #### Beyond the rhythm and beat, the mood of the track adds an extra spice. Here, we'll explore the correlation between Valence and Acousticness to see how these elements contribute to each other.
+
+🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
 
 Likewise, we can use the .corr() function to find the relation between Valence and Acousticness.
 ```python
@@ -526,7 +575,7 @@ Figure 3.2.
 
 
 ---
-## Audience Preferences
+# AUDIENCE PREFERENCES
 #### As we dive further into the data, we start to uncover where tracks are making their mark across different platforms. Let’s take a closer look at the trends and see which platform the audience's preferred the most!
 
 By utilizing the .sum() function, it sums the values of the selected columns, which helps with comparison.
@@ -582,13 +631,15 @@ Figure 4.0.
 ![image](https://github.com/user-attachments/assets/2cc78d87-f77c-47c3-bcd0-feb33e963dd6)
 
 ---
-## Advanced Analysis
+# ADVANCED ANALYSIS
 ####
 
 ---
-
+🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
 ### Key and Mode Analysis
 ####
+
+🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
 
 Based on the streams data, can you identify any patterns among tracks with the same key or mode (Major vs. Minor)?
 ```python
@@ -622,7 +673,6 @@ Table 7.0 The Average Streams by Key and Mode
 | G    | Minor | 3.637593e+08           |
 | G#   | Major | 5.458044e+08           |
 | G#   | Minor | 3.219036e+08           |
-
 
 
 Since the data type of the streams is an object, using .to_numeric function to convert 'streams' column to numeric.
@@ -667,11 +717,17 @@ Figure 5.0.
 ![image](https://github.com/user-attachments/assets/549710d0-62df-473d-b6d0-011bfdb8409e)
 
 --- 
-
+🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
 ### Frequent Artists in Playlists
 ####
 
-# Using .sum() function it sums up how many times the artist consistently appear in more playlists/charts.
+🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
+
+Using .sum() function it sums up how many times the artist consistently appear in more playlists/charts.
+```python
+plt.legend(title='Mode')
+plt.show()
+```
 top_artists = df.groupby('artist(s)_name')[['in_apple_playlists', 'in_spotify_playlists','in_spotify_charts','in_deezer_playlists','in_deezer_charts']].sum()
 top_artists = top_artists.sort_values(by='in_spotify_playlists', ascending=False).head(10)
 print("Most Frequently Appearing Artists:\n", top_artists_playlists)
@@ -692,45 +748,53 @@ Table 8.0. The Most Frequently Appearing Artists
 | Adele                 | 646                | 65049                 | 69                | 856.0               | 29               | 66649.0           |
 
 
-# Sums the total number of appearances for each artist across all platforms.
+Sums the total number of appearances for each artist across all platforms.
+```python
 top_artists['Total Appearances'] = top_artists.sum(axis=1)
+```
 
-# Set the overall design of the graph
+Set the overall design of the graph
+```python
 plt.figure(figsize=(18, 6))
 sns.set(style="whitegrid")
 sns.barplot(data=top_artists, x='Total Appearances', y=top_artists_playlists.index, palette="viridis", edgecolor='black')
 plt.bar_label(plt.gca().containers[0], fontsize=12, fontweight='bold', padding=5)
+```
 
-# Adds labels to the gaph.
+Adds labels to the gaph.
+```python
 plt.title('Top 10 Artists Consistently Appearing in Playlists/Charts', fontsize=14, fontweight='bold')
 plt.xlabel('Total Appearances in Playlists/Charts', fontsize=12)
 plt.ylabel('Artist Name', fontsize=12)
 plt.grid(axis='x', linestyle='--', alpha=0.7)
+```
 
-# Show the plot
+Show the plot
+```python
 plt.show()
+```
 
 Figure 6.0.
 ![image](https://github.com/user-attachments/assets/42f78d77-d798-44a3-9fed-b84c0b63df21)
 
 ---
-## Conclusion
+## CONCLUSION
 ####
 ---
 
-## License 
+## LICENSE
 #### Jupyter Notebook is a software licensed under the [BSD License](https://jupyter.org/governance/projectlicense.html). 
 
 ---
 
-## Author
+## AUTHOR
 
 * Name: DOMINGO, Mariedel O.
 * Section: 2ECE-A
 
 ---
 
-## Version History
+## VERSION HISTORY
 
 #### 1.00
 * Created a repository.
