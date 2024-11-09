@@ -1,4 +1,4 @@
-<h1 align="center">Python - Exploratory Data Analysis on Spotify 2023 Dataset
+<h1 align="center"> $${\color{lightblue}Python\ -\space \color{orangered} Exploratory\ Data\ Analysis \space \color{lightblue}on\ Spotify\ 2023\ Dataset }$$
     
 ---
 
@@ -94,7 +94,7 @@ df
 #### Table 1.0 provides a comprehensive overview of **$\color{lightgreen}{953}$** of Spotify's most-streamed songs with **$\color{lightgreen}{24}$** columns, containing their release dates, musical attributes, and platform performance, which will be used for further analysis.
   
 ---
-# DATA PROCESSING
+# DATA PREPROCESSING
 #### Given the large amount of data, checking each column individually for completeness is challenging. This section outlines each column's data type and identifies any missing values to ensure the dataset's quality and reliability.
 ---
 
@@ -104,7 +104,7 @@ To better understand the dataset, identifying the data types of each column is e
 
 🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
 
-Using dtypes function from pandas library, this will help indicate what are the data type stored in each column.
+Using **$\color{lightgreen}{dtypes\ function }$** from pandas library, this will help indicate what are the data type stored in each column.
 
 ```python
 data_types = df.dtypes
@@ -147,7 +147,7 @@ Recognizing missing values is key to ensuring data accuracy and minimizing poten
 
 🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
 
-By employing the .isnull() function, this code checks for missing values, and then the .sum() function totals all the number of missing values in each column. The outcome is stored in the variable missing_values.
+By employing the **$\color{pink}{.isnull()\ function}$** , this code checks for missing values, and then the .sum() function totals all the number of missing values in each column. The outcome is stored in the variable missing_values.
 
 ```python
 missing_values = df.isnull().sum()
@@ -202,7 +202,7 @@ As shown in Table 2.1, the dataset has a **$\color{Pink}{total\ of\ 145\ missing
 
 🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
 
-Given that the data type of the streams is an object, we can convert it to numeric using pd.to_numeric. This allows us to calculate the mean, median, and standard deviation using the .mean() function.
+Given that the data type of the streams is an _object_, we can convert it to numeric using **$\color{orange}{pd.to_numeric}$** function. This allows us to calculate the mean, median, and standard deviation using the .mean() function.
 
 ```python
 mean_streams = pd.to_numeric(df['streams'], errors='coerce').mean()
@@ -219,7 +219,7 @@ print("Median: ", median_streams)
 print("Standard deviation: ", std_streams)
 ```
 ### Table 3.0. The Descriptive statistics for streams
-| Metric             | Value                |
+| **$\color{orange}{Metric}$**            |**$\color{orange}{Value}$**                |
 |--------------------|----------------------|
 | $\mathbf{\color{Red}{Mean}}$  | 514137424.93907565      |
 | $\mathbf{\color{orange}{Median}}$       | 290530915.0      |
@@ -259,7 +259,7 @@ plt.show()
 ### Figure 1.0. 
 ![image](https://github.com/user-attachments/assets/cd059c52-aed6-4fcc-895b-bc8de95a97da)
 
-As seen in the graph, the music industry began slowly in the 1960s, gradually picking up through the 2000s, but the peak year came in 2022, during the pandemic, when most people were staying at home.
+As seen in the graph, the music industry began  **$\color{yellow}{slowly\ in\ the\ 1960s}$** , gradually picking up through the 2000s, but the **$\color{yellow}{peak\ year\ came\ in\ 2022}$**, during the pandemic, when most people were staying at home.
 
 🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
 - ### Artist Frequency
@@ -291,7 +291,7 @@ This section highlights the top-performing tracks, revealing the true music sens
 
 🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
 
-Since the 'streams' column is an object data type, it is necessary to convert it to numeric in order to use the nlargest function, which will be utilized to provide the top 5 most streamed tracks.
+Since the 'streams' column is an _object_ data type, it is necessary to **convert it to numeric** in order to use the $\mathbf{\color{Red}{nlargest}}$  function, which will be utilized to provide the top 5 most streamed tracks.
 
 ```python
 df['streams'] = pd.to_numeric(df['streams'], errors='coerce')
@@ -311,7 +311,7 @@ print("Top 5 Most Streamed Tracks:\n", most_streamed_tracks )
 | 4                           | Dance Monkey                         | 2.864792e+09                   |
 | 5                           | Sunflower - Spider-Man: Into the Spider-Verse | 2.808097e+09          |
 
-The table highlights the top 5 most-streamed tracks on Spotify, revealing listener preferences, with "Blinding Lights" by The Weeknd taking the lead as the most-streamed track.
+The table highlights the top 5 most-streamed tracks on Spotify, revealing listener preferences, with $\mathbf{\color{Red}{"Blinding\ Lights"}}$ by The Weeknd taking the lead as the most-streamed track.
 
 🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
 - ### Top Artists
@@ -319,7 +319,7 @@ This section highlights the top 5 artists with the most tracks in the dataset, s
 
 🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
 
-By using the .value_counts() function, the code counts the frequency of each artist in the 'artist(s)_name' column. Then, by applying the .head(5) function, it gets the top 5 most frequently appearing artists based on the number of tracks.
+By using the $\mathbf{\color{lightblue}{.value_counts()}}$ function, the code counts the frequency of each artist in the 'artist(s)_name' column. Then, by applying the  $\mathbf{\color{lightblue}{.head()}}$  function, it gets the top 5 most frequently appearing artists based on the number of tracks.
 
 ```python
 top_artists = df['artist(s)_name'].value_counts().head(5)
@@ -335,7 +335,7 @@ print("\nTop 5 most Frequent Artists by Number of Tracks:\n", top_artists)
 | SZA                |    19      |  
 | Harry Styles          |    17     |
 
-Table 4.1 reveals the collaborative dynamics within the music industry, highlighting the frequency of artist pairings and group collaborations. While The Weeknd has the most-streamed track, Taylor Swift leads as the top artist with 34 collaborations, closely followed by The Weeknd with 22 collaborations.
+Table 4.1 reveals the collaborative dynamics within the music industry, highlighting the frequency of artist pairings and group collaborations. While The Weeknd has the most-streamed track, $\mathbf{\color{lightblue}{Taylor\ Swift}}$  leads as the top artist with **34** collaborations, closely followed by $\mathbf{\color{lightblue}{The\ Weeknd}}$ with **22** collaborations.
 
 ---
 # TEMPORAL TRENDS IN MUSIC RELEASES
@@ -396,7 +396,7 @@ plt.show()
 ### Figure 2.0. 
 ![image](https://github.com/user-attachments/assets/5f9f3b41-e813-427f-8ace-05d8547d6b79)
 
-As we observed earlier, 2022 marked the peak of music releases. Figure 2.0 illustrates the number of tracks released each year, and it’s clear that 2022 stood out with a remarkable 402 tracks being released during that year.
+As we observed earlier, 2022 marked the peak of music releases. Figure 2.0 illustrates the number of tracks released each year, and it’s clear that 2022 stood out with a remarkable  $\mathbf{\color{green}{402 }}$ tracks being released during that year.
 
 ---
 
@@ -543,7 +543,6 @@ plt.show()
 ```
 
 ![image](https://github.com/user-attachments/assets/9abb3a34-37f7-4498-a0a1-89c8f140ed9c)
-Figure 3.1. 
 
 The calculated correlation between danceability and energy shows a positive result, and the visual representation further supports this with a positive slope. This suggests that these two elements are interconnected, meaning that the more danceable a track is, the more energy it requires.
 
@@ -574,7 +573,6 @@ plt.show()
 ```
 
 ![image](https://github.com/user-attachments/assets/09b671a3-e072-4753-8ea2-8ce9957e180e)
-Figure 3.2.
 
 ### The valence and acousticness of a song contribute to its overall mood. However, the calculated correlation between these two attributes reveals a negative result and slope, suggesting that they are not correlated with each other. This indicates that a track can have one of these elements without necessarily having the other.
 
