@@ -527,41 +527,191 @@ Figure 3.2.
 
 ---
 ## Audience Preferences
-#### 
----
+#### As we dive further into the data, we start to uncover where tracks are making their mark across different platforms. Let’s take a closer look at the trends and see which platform the audience's preferred the most!
 
-# By utilizing the .sum() function, it sums the values of the selected columns, which helps with comparison.
+By utilizing the .sum() function, it sums the values of the selected columns, which helps with comparison.
+```python
 popular_tracks = df[['in_apple_playlists', 'in_spotify_playlists','in_spotify_charts',  'in_deezer_playlists', 'in_deezer_charts']].sum()
 print("The most Popular Tracks:\n", popular_tracks)
+```
+### Table 6.0. The Correlation of Musical Attributes among Streams
+| Track Platform           | Popularity Count |
+|--------------------------|------------------|
+| in_apple_playlists       | 64625.0          |
+| in_spotify_playlists     | 4955719.0        |
+| in_spotify_charts        | 11445.0          |
+| in_deezer_playlists      | 95913.0          |
+| in_deezer_charts         | 2541.0           |
 
+Sum the values for each platform
+```python
+popular_tracks = df.sum()
 
-# This function adjusts the size and adds design elements to the graph.
+```
+
+Create a DataFrame for plotting
+```python
+platforms = pd.DataFrame({
+    'Platform': popular_tracks.index,
+    'Track Count': popular_tracks.values
+})
+```
+
+This function adjusts the size and adds design elements to the graph.
+```python
 plt.figure(figsize=(12, 6))
 sns.set(style="whitegrid")
 palette = sns.color_palette(["pink", "violet", "lightgreen", "orangered", "blue"])
-graph = sns.barplot(data=platform_data, x='Platform', y='Track Count', palette=palette, edgecolor='black')
+graph = sns.barplot(data=platforms, x='Platform', y='Track Count', palette=palette, edgecolor='black')
+```
 
-#The following functions are used to add labels to the graph.
+The following functions are used to add labels to the graph.
+```python
 plt.xlabel('Platform', fontsize=14, fontweight='bold')
 plt.ylabel('Number of Tracks', fontsize=14, fontweight='bold')
 plt.title('Popular Tracks Across Platforms', fontsize=16, fontweight='bold', color='darkred')
 plt.grid(axis='y', linestyle='--', alpha=0.7)
+```
 
-# Show the plot
+Show the plot
+```python
 plt.show()
+```
+
+Figure 4.0.
+![image](https://github.com/user-attachments/assets/2cc78d87-f77c-47c3-bcd0-feb33e963dd6)
 
 ---
 ## Advanced Analysis
 ####
+
 ---
 
 ### Key and Mode Analysis
 ####
 
+Based on the streams data, can you identify any patterns among tracks with the same key or mode (Major vs. Minor)?
+```python
+streams_same_key = df.groupby(['key', 'mode'])['streams'].mean().reset_index()
+print("Average Streams by Key and Mode:\n", streams_same_key, "\n")
+```
+
+Table 7.0 The Average Streams by Key and Mode
+
+| Key  | Mode  | Average Streams        |
+|------|-------|------------------------|
+| A    | Major | 4.019603e+08           |
+| A    | Minor | 4.173906e+08           |
+| A#   | Major | 6.275336e+08           |
+| A#   | Minor | 4.849231e+08           |
+| B    | Major | 4.363336e+08           |
+| B    | Minor | 5.825110e+08           |
+| C#   | Major | 6.285883e+08           |
+| C#   | Minor | 5.665252e+08           |
+| D    | Major | 5.720180e+08           |
+| D    | Minor | 3.425588e+08           |
+| D#   | Major | 6.819623e+08           |
+| D#   | Minor | 4.793647e+08           |
+| E    | Major | 7.605963e+08           |
+| E    | Minor | 5.083264e+08           |
+| F    | Major | 5.279311e+08           |
+| F    | Minor | 4.102836e+08           |
+| F#   | Major | 4.175450e+08           |
+| F#   | Minor | 5.954921e+08           |
+| G    | Major | 4.929813e+08           |
+| G    | Minor | 3.637593e+08           |
+| G#   | Major | 5.458044e+08           |
+| G#   | Minor | 3.219036e+08           |
+
+
+
+Since the data type of the streams is an object, using .to_numeric function to convert 'streams' column to numeric.
+```python
+df['streams'] = pd.to_numeric(df['streams'], errors='coerce')  
+```
+
+Calculates the average among tracks with the same key or mode (Major vs. Minor).
+```python
+streams_same_key = df.groupby(['key', 'mode']).size().reset_index(name='Count')
+```
+
+
+Set the figure size and style
+```python
+plt.figure(figsize=(10, 6))
+sns.set(style="whitegrid")
+```
+
+
+Create a scatter plot with different colors for each mode
+```python
+sns.scatterplot(data=streams_same_key, x='key', y='Count', hue='mode', palette='Set1')
+```
+
+
+Add labels and title
+```python
+plt.xlabel('Key', fontsize=14, fontweight='bold')
+plt.ylabel('Average Streams', fontsize=14, fontweight='bold')
+plt.title('Average Streams by Key and Mode (Major vs Minor)', fontsize=16, fontweight='bold', color='darkred')
+```
+
+
+Display the plot
+```python
+plt.legend(title='Mode')
+plt.show()
+```
+
+Figure 5.0.
+![image](https://github.com/user-attachments/assets/549710d0-62df-473d-b6d0-011bfdb8409e)
+
 --- 
 
 ### Frequent Artists in Playlists
 ####
+
+# Using .sum() function it sums up how many times the artist consistently appear in more playlists/charts.
+top_artists = df.groupby('artist(s)_name')[['in_apple_playlists', 'in_spotify_playlists','in_spotify_charts','in_deezer_playlists','in_deezer_charts']].sum()
+top_artists = top_artists.sort_values(by='in_spotify_playlists', ascending=False).head(10)
+print("Most Frequently Appearing Artists:\n", top_artists_playlists)
+
+Table 8.0. The Most Frequently Appearing Artists
+
+| Artist(s) Name        | in Apple Playlists | in Spotify Playlists | in Spotify Charts | in Deezer Playlists | in Deezer Charts | Total Appearances |
+|-----------------------|--------------------|-----------------------|-------------------|---------------------|------------------|-------------------|
+| The Weeknd            | 1677               | 144053                | 180               | 2138.0              | 23               | 148071.0          |
+| Taylor Swift          | 1796               | 132974                | 542               | 1708.0              | 58               | 137078.0          |
+| Ed Sheeran            | 1448               | 128758                | 94                | 1702.0              | 43               | 132045.0          |
+| Harry Styles          | 1741               | 110026                | 185               | 2483.0              | 76               | 114511.0          |
+| Eminem                | 475                | 87331                 | 152               | 0.0                 | 12               | 87970.0           |
+| Arctic Monkeys        | 241                | 84016                 | 190               | 1170.0              | 6                | 85623.0           |
+| Coldplay              | 381                | 75716                 | 72                | 805.0               | 10               | 76984.0           |
+| Avicii                | 407                | 68241                 | 42                | 0.0                 | 1                | 68691.0           |
+| Dr. Dre, Snoop Dogg   | 283                | 65728                 | 0                 | 0.0                 | 2                | 66013.0           |
+| Adele                 | 646                | 65049                 | 69                | 856.0               | 29               | 66649.0           |
+
+
+# Sums the total number of appearances for each artist across all platforms.
+top_artists['Total Appearances'] = top_artists.sum(axis=1)
+
+# Set the overall design of the graph
+plt.figure(figsize=(18, 6))
+sns.set(style="whitegrid")
+sns.barplot(data=top_artists, x='Total Appearances', y=top_artists_playlists.index, palette="viridis", edgecolor='black')
+plt.bar_label(plt.gca().containers[0], fontsize=12, fontweight='bold', padding=5)
+
+# Adds labels to the gaph.
+plt.title('Top 10 Artists Consistently Appearing in Playlists/Charts', fontsize=14, fontweight='bold')
+plt.xlabel('Total Appearances in Playlists/Charts', fontsize=12)
+plt.ylabel('Artist Name', fontsize=12)
+plt.grid(axis='x', linestyle='--', alpha=0.7)
+
+# Show the plot
+plt.show()
+
+Figure 6.0.
+![image](https://github.com/user-attachments/assets/42f78d77-d798-44a3-9fed-b84c0b63df21)
 
 ---
 ## Conclusion
