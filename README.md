@@ -277,7 +277,7 @@ print("Top 5 Most Streamed Tracks:\n", most_streamed_tracks )
 ```
 
 ### Table 4.0. The Top 5 Most Streamed Tracks.
-|$\mathbf{\color{Red}{#}}$       | $\mathbf{\color{Red}{Track\ Name}}$     |  $\mathbf{\color{Red}{Streams}}$       |  
+| $\mathbf{\color{Red}{#}}$       | $\mathbf{\color{Red}{Track\ Name}}$     |  $\mathbf{\color{Red}{Streams}}$       |  
 | ------------- |:-------------:| :-------------:|
 | 1          |     Blinding Lights      | 3.703895e+09|   
 | 2          |     Shape of You    |3.562544e+09|   
