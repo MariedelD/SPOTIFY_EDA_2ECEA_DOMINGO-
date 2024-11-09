@@ -79,7 +79,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 ```
 
-#### To enable the code to read the dataset, using encoding='latin-1' will help load the .csv file, and this function will store the data in the variable df.
+#### To enable the code to read the dataset, using **$\color{lightblue}{encoding='latin-1'}$**  will help load the .csv file, and this function will store the data in the variable df.
 
 ```python
 df = pd.read_csv('spotify-2023.csv', encoding='latin-1')
