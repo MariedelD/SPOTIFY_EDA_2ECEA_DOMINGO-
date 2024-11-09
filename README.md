@@ -259,7 +259,7 @@ plt.show()
 ### Figure 1.0. 
 ![image](https://github.com/user-attachments/assets/cd059c52-aed6-4fcc-895b-bc8de95a97da)
 
-As seen in the graph, the music industry began  **$\color{yellow}{slowly\ in\ the\ 1960s}$** , gradually picking up through the 2000s, but the **$\color{yellow}{peak\ year\ came\ in\ 2022}$**, during the pandemic, when most people were staying at home.
+##### As seen in the graph, the music industry began  **$\color{yellow}{slowly\ in\ the\ 1960s}$** , gradually picking up through the 2000s, but the **$\color{yellow}{peak\ year\ came\ in\ 2022}$**, during the pandemic, when most people were staying at home.
 
 🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
 - ### Artist Frequency
@@ -501,11 +501,11 @@ plt.show()
 | valence_%        | -0.040831                |
 | acousticness_%   | -0.004485                |
 
-Figure 3.0. The Correlation among Streams using Visual Representation
+### Figure 3.0. The Correlation among Streams using Visual Representation
 ![image](https://github.com/user-attachments/assets/6909bec8-ec23-49dc-8449-fb504cc40d84)
 ![image](https://github.com/user-attachments/assets/def7353d-0066-4ed3-9bd9-6ca3af667323)
 
-The calculated correlation between streams and musical attributes reveals mostly negative values. Additionally, the visual representation shows that all the regression lines have a negative slope, indicating that these attributes don't significantly influence track popularity
+#### The calculated correlation between streams and musical attributes reveals mostly negative values. Additionally, the visual representation shows that all the regression lines have a negative slope, indicating that these attributes don't significantly influence track popularity
 
 --- 
 
@@ -541,10 +541,10 @@ Displays the graph.
 ```python
 plt.show()
 ```
-
+### Figure 3.1. 
 ![image](https://github.com/user-attachments/assets/9abb3a34-37f7-4498-a0a1-89c8f140ed9c)
 
-The calculated correlation between danceability and energy shows a positive result, and the visual representation further supports this with a positive slope. This suggests that these two elements are interconnected, meaning that the more danceable a track is, the more energy it requires.
+#### The calculated correlation between danceability and energy shows a positive result, and the visual representation further supports this with a positive slope. This suggests that these two elements are interconnected, meaning that the more danceable a track is, the more energy it requires.
 
 ---
 🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
@@ -571,10 +571,10 @@ plt.xlabel('Valence (%)', fontsize=14)
 plt.ylabel('Acousticness (%)', fontsize=14)
 plt.show()
 ```
-
+### Figure 3.2. 
 ![image](https://github.com/user-attachments/assets/09b671a3-e072-4753-8ea2-8ce9957e180e)
 
-### The valence and acousticness of a song contribute to its overall mood. However, the calculated correlation between these two attributes reveals a negative result and slope, suggesting that they are not correlated with each other. This indicates that a track can have one of these elements without necessarily having the other.
+#### The valence and acousticness of a song contribute to its overall mood. However, the calculated correlation between these two attributes reveals a negative result and slope, suggesting that they are not correlated with each other. This indicates that a track can have one of these elements without necessarily having the other.
 
 ---
 # AUDIENCE PREFERENCES
@@ -629,7 +629,7 @@ Show the plot
 plt.show()
 ```
 
-Figure 4.0.
+### Figure 4.0.
 ![image](https://github.com/user-attachments/assets/2cc78d87-f77c-47c3-bcd0-feb33e963dd6)
 
 #### By examining Table 6.0 and Figure 4.0, we can clearly identify a significant trend: Spotify playlists feature the most popular songs across platforms, with a popularity count of 4,955,719.
@@ -651,9 +651,7 @@ streams_same_key = df.groupby(['key', 'mode'])['streams'].mean().reset_index()
 print("Average Streams by Key and Mode:\n", streams_same_key, "\n")
 ```
 
-Table 7.0 The Distribution of Tracks by Key and Mode 
-
-### Average Streams by Key and Mode:
+### Table 7.0 The Distribution of Tracks by Key and Mode 
 
 | Key  | Mode  | Number of Track     |
 |------|-------|------------------|
@@ -724,7 +722,7 @@ plt.show()
 ### Figure 5.0.
 ![image](https://github.com/user-attachments/assets/549710d0-62df-473d-b6d0-011bfdb8409e)
 
-The table and figure above illustrate the distribution of tracks by key and mode. A clear pattern emerges, showing that C# has the highest number of tracks, while D# is the least number of tracks used as key and mode.
+#### The table and figure above illustrate the distribution of tracks by key and mode. A clear pattern emerges, showing that C# has the highest number of tracks, while D# is the least number of tracks used as key and mode.
 
 
 
@@ -744,7 +742,7 @@ top_artists = df.groupby('artist(s)_name')[['in_apple_playlists', 'in_spotify_pl
 top_artists = top_artists.sort_values(by='in_spotify_playlists', ascending=False).head(10)
 print("Most Frequently Appearing Artists:\n", top_artists_playlists)
 
-Table 8.0. The Most Frequently Appearing Artists
+### Table 8.0. The Most Frequently Appearing Artists
 
 | Artist(s) Name        | in Apple Playlists | in Spotify Playlists | in Spotify Charts | in Deezer Playlists | in Deezer Charts | Total Appearances |
 |-----------------------|--------------------|-----------------------|-------------------|---------------------|------------------|-------------------|
@@ -786,10 +784,10 @@ Show the plot
 plt.show()
 ```
 
-Figure 6.0.
+### Figure 6.0.
 ![image](https://github.com/user-attachments/assets/42f78d77-d798-44a3-9fed-b84c0b63df21)
 
-As observed in the previous section, 'Blinding Lights' by The Weeknd stands as the most-streamed track. In this section, we further highlight that The Weeknd also tops the list for the most appearances across playlists and charts, with a total of 148,071. Meanwhile, Taylor Swift ranks second with 137,078 appearances.
+#### As observed in the previous section, 'Blinding Lights' by The Weeknd stands as the most-streamed track. In this section, we further highlight that The Weeknd also tops the list for the most appearances across playlists and charts, with a total of 148,071. Meanwhile, Taylor Swift ranks second with 137,078 appearances.
 
 ---
 ## CONCLUSION
