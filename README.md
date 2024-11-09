@@ -542,8 +542,8 @@ Displays the graph.
 plt.show()
 ```
 
-Figure 3.1. 
 ![image](https://github.com/user-attachments/assets/9abb3a34-37f7-4498-a0a1-89c8f140ed9c)
+Figure 3.1. 
 
 The calculated correlation between danceability and energy shows a positive result, and the visual representation further supports this with a positive slope. This suggests that these two elements are interconnected, meaning that the more danceable a track is, the more energy it requires.
 
@@ -573,9 +573,8 @@ plt.ylabel('Acousticness (%)', fontsize=14)
 plt.show()
 ```
 
-Figure 3.2.
-
 ![image](https://github.com/user-attachments/assets/09b671a3-e072-4753-8ea2-8ce9957e180e)
+Figure 3.2.
 
 ### The valence and acousticness of a song contribute to its overall mood. However, the calculated correlation between these two attributes reveals a negative result and slope, suggesting that they are not correlated with each other. This indicates that a track can have one of these elements without necessarily having the other.
 
@@ -639,12 +638,12 @@ Figure 4.0.
 
 ---
 # ADVANCED ANALYSIS
-####
+#### The advanced analysis dives deeper into the charts, revealing the most frequently used keys and modes by each artist. Here, you can discover which key or mode dominates their tracks and find out who the top artist of the year is!
 
 ---
 🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
 ### Key and Mode Analysis
-####
+#### Each track has its own unique combination of key or mode. Here, we showcase which keys and modes were most commonly used by artists for their tracks.
 
 🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
 
@@ -724,7 +723,7 @@ plt.legend(title='Mode')
 plt.show()
 ```
 
-Figure 5.0.
+### Figure 5.0.
 ![image](https://github.com/user-attachments/assets/549710d0-62df-473d-b6d0-011bfdb8409e)
 
 The table and figure above illustrate the distribution of tracks by key and mode. A clear pattern emerges, showing that C# has the highest number of tracks, while D# is the least number of tracks used as key and mode.
@@ -734,7 +733,7 @@ The table and figure above illustrate the distribution of tracks by key and mode
 --- 
 🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
 ### Frequent Artists in Playlists
-####
+#### This section highlights the most frequent artists appearing on each platform, helping us assess which artists are currently at the top of the charts. So why not try listening to their songs and see what makes them so popular?
 
 🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
 
@@ -796,7 +795,7 @@ As observed in the previous section, 'Blinding Lights' by The Weeknd stands as t
 
 ---
 ## CONCLUSION
-####
+In conclusion, our exploratory data analysis (EDA) of the Most Streamed Spotify Songs 2023 dataset provided valuable insights into what makes a song popular. We uncovered that popularity isn’t solely about the artist but is influenced by a range of musical attributes. This analysis encourages listeners to expand their musical tastes by highlighting top songs and artists. Additionally, beyond the analysis itself, this project serves as a practical guide, offering code snippets for working with specific data types and tips for creating more visually engaging graphs.
 ---
 
 ## LICENSE
@@ -824,5 +823,7 @@ As observed in the previous section, 'Blinding Lights' by The Weeknd stands as t
 * Made some updates to the README file.
 #### 1.04
 * Uploaded the corrected supplemental file.
+#### 1.05
+* Made some updates to the README file.
 
 
