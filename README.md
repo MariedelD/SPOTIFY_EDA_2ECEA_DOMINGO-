@@ -46,7 +46,6 @@ This project aims to **$\color{violet}{uncover\ the\ secrets\ behind\ music\ pop
     - [The Rhythm and the Beat](#The-Rhythm-and-the-Beat)
     - [Mood Tones](#Mood-Tones)
 - [Audience Preferences](#Audience-Preferences)
-    - [Platform Comparison](#Platform-Comparison)
 - [Advanced Analysis](#Advanced-Analysis)
     - [Key and Mode Analysis](#Key-and-ModeAnalysis)
     - [Frequent Artists in Playlists](#Frequent-Artists-in-Playlists)
@@ -393,29 +392,163 @@ plt.show()
 
 --- 
 ## Musical Attributes and Popularity
-####
+In this section, we’ll take a look at what makes each track stand out and reach the top of the Spotify charts. Here, you’ll uncover the unique qualities that make these songs fan favorites, examining the connections between their musical attributes and streaming numbers. By understanding these factors, we can see why certain songs get so many streams and become big hits.
 ---
 
 ### What Makes a Hit?
-#### 
+#### Ever wonder how a song rockets to Spotify's top? Here, you can uncover the musical ingredients that make tracks climb the charts!
+
+Stored in the correlation_with_streams variable, the .corr() function helps to find the correlation between the selected columns.
+```python
+correlation_with_streams = df[['streams', 'bpm', 'danceability_%', 'energy_%', 'valence_%',	'acousticness_%']].corr()
+print("Correlation among Streams:\n", correlation_with_streams['streams'], "\n")
+```
+
+Aside from calculating the correlation, graphing the values aids in analyzing the relationship between them. Therefore, by using the plt function it provides visual representation of these values.
+```python
+plt.figure(figsize=(18, 15))
+```
+
+This graph shows the correlation between Streams and BPM.
+```python
+plt.subplot(2, 3, 1)
+sns.regplot(x='bpm', y='streams', data=df, scatter_kws={'color': 'green'}, line_kws={'color': 'darkblue'})
+plt.title('Streams vs. BPM')
+```
+
+This function illustrates the correlation between Streams and Danceability.
+```python
+plt.subplot(2, 3, 2)
+sns.regplot(x='danceability_%', y='streams', data=df, scatter_kws={'color': 'orange'}, line_kws={'color': 'darkblue'})
+plt.title('Streams vs. Danceability')
+```
+
+Provides a visual representation of the relationship between Streams and Energy.
+```python
+plt.subplot(2, 3, 3)
+sns.regplot(x='energy_%', y='streams', data=df, scatter_kws={'color': 'yellow'}, line_kws={'color': 'darkblue'})
+plt.title('Streams vs. Energy')
+```
+
+The graph depicts the connection between Streams and Valence.
+```python
+plt.subplot(2, 3, 4)
+sns.regplot(x='valence_%', y='streams', data=df, scatter_kws={'color': 'pink'}, line_kws={'color': 'darkblue'})
+plt.title('Streams vs. Valence')
+```
+
+Illustrates the correlation among Streams and Acousticness
+```python
+plt.subplot(2, 3, 5)
+sns.regplot(x='acousticness_%', y='streams', data=df, scatter_kws={'color': 'violet'}, line_kws={'color': 'darkblue'})
+plt.title('Streams vs. Acousticness')
+```
+
+Displays the Scatter Plot
+```python
+plt.show()
+```
+### Table 5.0. The Correlation of Musical Attributes among Streams
+| Attribute        | Correlation              |
+|------------------|--------------------------|
+| streams          | 1.000000                 |
+| bpm              | -0.002438                |
+| danceability_%   | -0.105457                |
+| energy_%         | -0.026051                |
+| valence_%        | -0.040831                |
+| acousticness_%   | -0.004485                |
+
+Figure 3.0. The Correlation among Streams using Visual Representation
+![image](https://github.com/user-attachments/assets/6909bec8-ec23-49dc-8449-fb504cc40d84)
+![image](https://github.com/user-attachments/assets/def7353d-0066-4ed3-9bd9-6ca3af667323)
 
 --
  
 ### The Rhythm and the Beat
-#### 
+#### Next, let's dive into the rhythm and beat! Calculating and plotting the correlation between Danceability and Energy to explore how these two atrributes come together and impact each other.
+
+Similarly, the .corr() function calculates the correlation between the selected columns. Here, Correlation between Danceability and Energy.
+```python
+correlation_dance_energy = df['danceability_%'].corr(df['energy_%'])
+print(f"Correlation between Danceability and Energy: {correlation_dance_energy:.2f}")
+```
+
+The correlation between Danceability and Energy is calculated to be  **$\color{orangered}{0.20}$** .
+
+To better analyze the relationships between the selected columns,by utlizing the plt function this creates visual representation of their correlations.
+```python
+plt.figure(figsize=(12, 6))
+```
+
+Scatter plot for Danceability and Energy.
+```python
+plt.subplot(1, 2, 1) 
+sns.regplot(x='danceability_%', y='energy_%', data=df, scatter_kws={'color': 'skyblue'}, line_kws={'color': 'darkblue'})
+plt.title('Danceability vs Energy', fontsize=16)
+plt.xlabel('Danceability (%)', fontsize=14)
+plt.ylabel('Energy (%)', fontsize=14)
+```
+
+Displays the graph.
+```python
+plt.show()
+```
+
+Figure 3.1. 
+![image](https://github.com/user-attachments/assets/9abb3a34-37f7-4498-a0a1-89c8f140ed9c)
 
 ---
 
 ### Mood Tones
-####
+#### Beyond the rhythm and beat, the mood of the track adds an extra spice. Here, we'll explore the correlation between Valence and Acousticness to see how these elements contribute to each other.
+
+Likewise, we can use the .corr() function to find the relation between Valence and Acousticness.
+```python
+correlation_valence_acousticness = df['valence_%'].corr(df['acousticness_%'])
+print(f"Correlation between Valence and Acousticness: {correlation_valence_acousticness:.2f}\n")
+```
+
+The correlation between Valence and Acousticness is computed to be $\color{orangered}{-0.08}$.
+
+To better analyze the relationships between the selected columns,by utlizing the plt function this creates visual representation of their correlations.
+```python
+plt.figure(figsize=(12, 6))
+plt.subplot(1, 2, 2)
+sns.regplot(x='valence_%', y='acousticness_%', data=df, scatter_kws={'color': 'pink'}, line_kws={'color': 'darkred'})
+plt.title('Valence vs Acousticness', fontsize=16)
+plt.xlabel('Valence (%)', fontsize=14)
+plt.ylabel('Acousticness (%)', fontsize=14)
+plt.show()
+```
+
+Figure 3.2.
+![image](https://github.com/user-attachments/assets/09b671a3-e072-4753-8ea2-8ce9957e180e)
+
 
 ---
 ## Audience Preferences
-####
+#### 
 ---
 
-### Platform Comparison
-####
+# By utilizing the .sum() function, it sums the values of the selected columns, which helps with comparison.
+popular_tracks = df[['in_apple_playlists', 'in_spotify_playlists','in_spotify_charts',  'in_deezer_playlists', 'in_deezer_charts']].sum()
+print("The most Popular Tracks:\n", popular_tracks)
+
+
+# This function adjusts the size and adds design elements to the graph.
+plt.figure(figsize=(12, 6))
+sns.set(style="whitegrid")
+palette = sns.color_palette(["pink", "violet", "lightgreen", "orangered", "blue"])
+graph = sns.barplot(data=platform_data, x='Platform', y='Track Count', palette=palette, edgecolor='black')
+
+#The following functions are used to add labels to the graph.
+plt.xlabel('Platform', fontsize=14, fontweight='bold')
+plt.ylabel('Number of Tracks', fontsize=14, fontweight='bold')
+plt.title('Popular Tracks Across Platforms', fontsize=16, fontweight='bold', color='darkred')
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+
+# Show the plot
+plt.show()
 
 ---
 ## Advanced Analysis
