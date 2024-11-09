@@ -433,7 +433,7 @@ On the other hand, when looking at the monthly release patterns, January and May
 
 --- 
 # MUSICAL ATTRIBUTES AND POPULARITY
-In this section, we’ll take a look at what makes each track stand out and reach the top of the Spotify charts. Here, you’ll uncover the unique qualities that make these songs fan favorites, examining the connections between their musical attributes and streaming numbers. By understanding these factors, we can see why certain songs get so many streams and become big hits.
+#### In this section, we’ll take a look at what makes each track stand out and reach the top of the Spotify charts. Here, you’ll uncover the unique qualities that make these songs fan favorites, examining the connections between their musical attributes and streaming numbers. By understanding these factors, we can see why certain songs get so many streams and become big hits.
 ---
 🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
 ### What Makes a Hit?
@@ -492,7 +492,7 @@ Displays the Scatter Plot
 plt.show()
 ```
 ### Table 5.0. The Correlation of Musical Attributes among Streams
-| Attribute        | Correlation              |
+| $\mathbf{\color{ligthblue}{Attribute }}$       |$\mathbf{\color{ligthblue}{Correlation   }}$            |
 |------------------|--------------------------|
 | streams          | 1.000000                 |
 | bpm              | -0.002438                |
@@ -507,7 +507,8 @@ Figure 3.0. The Correlation among Streams using Visual Representation
 
 The calculated correlation between streams and musical attributes reveals mostly negative values. Additionally, the visual representation shows that all the regression lines have a negative slope, indicating that these attributes don't significantly influence track popularity
 
---
+--- 
+
 🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
 ### The Rhythm and the Beat
 #### Next, let's dive into the rhythm and beat! Calculating and plotting the correlation between Danceability and Energy to explore how these two atrributes come together and impact each other.
@@ -520,7 +521,7 @@ correlation_dance_energy = df['danceability_%'].corr(df['energy_%'])
 print(f"Correlation between Danceability and Energy: {correlation_dance_energy:.2f}")
 ```
 
-The correlation between Danceability and Energy is calculated to be  **$\color{orangered}{0.20}$** .
+The correlation between Danceability and Energy is calculated to be  **$\color{orangered}{0.20}$** . 
 
 To better analyze the relationships between the selected columns,by utlizing the plt function this creates visual representation of their correlations.
 ```python
@@ -543,6 +544,8 @@ plt.show()
 
 Figure 3.1. 
 ![image](https://github.com/user-attachments/assets/9abb3a34-37f7-4498-a0a1-89c8f140ed9c)
+
+The calculated correlation between danceability and energy shows a positive result, and the visual representation further supports this with a positive slope. This suggests that these two elements are interconnected, meaning that the more danceable a track is, the more energy it requires.
 
 ---
 🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
@@ -571,8 +574,10 @@ plt.show()
 ```
 
 Figure 3.2.
+
 ![image](https://github.com/user-attachments/assets/09b671a3-e072-4753-8ea2-8ce9957e180e)
 
+### The valence and acousticness of a song contribute to its overall mood. However, the calculated correlation between these two attributes reveals a negative result and slope, suggesting that they are not correlated with each other. This indicates that a track can have one of these elements without necessarily having the other.
 
 ---
 # AUDIENCE PREFERENCES
@@ -630,6 +635,8 @@ plt.show()
 Figure 4.0.
 ![image](https://github.com/user-attachments/assets/2cc78d87-f77c-47c3-bcd0-feb33e963dd6)
 
+#### By examining Table 6.0 and Figure 4.0, we can clearly identify a significant trend: Spotify playlists feature the most popular songs across platforms, with a popularity count of 4,955,719.
+
 ---
 # ADVANCED ANALYSIS
 ####
@@ -647,32 +654,36 @@ streams_same_key = df.groupby(['key', 'mode'])['streams'].mean().reset_index()
 print("Average Streams by Key and Mode:\n", streams_same_key, "\n")
 ```
 
-Table 7.0 The Average Streams by Key and Mode
+Table 7.0 The Distribution of Tracks by Key and Mode 
 
-| Key  | Mode  | Average Streams        |
-|------|-------|------------------------|
-| A    | Major | 4.019603e+08           |
-| A    | Minor | 4.173906e+08           |
-| A#   | Major | 6.275336e+08           |
-| A#   | Minor | 4.849231e+08           |
-| B    | Major | 4.363336e+08           |
-| B    | Minor | 5.825110e+08           |
-| C#   | Major | 6.285883e+08           |
-| C#   | Minor | 5.665252e+08           |
-| D    | Major | 5.720180e+08           |
-| D    | Minor | 3.425588e+08           |
-| D#   | Major | 6.819623e+08           |
-| D#   | Minor | 4.793647e+08           |
-| E    | Major | 7.605963e+08           |
-| E    | Minor | 5.083264e+08           |
-| F    | Major | 5.279311e+08           |
-| F    | Minor | 4.102836e+08           |
-| F#   | Major | 4.175450e+08           |
-| F#   | Minor | 5.954921e+08           |
-| G    | Major | 4.929813e+08           |
-| G    | Minor | 3.637593e+08           |
-| G#   | Major | 5.458044e+08           |
-| G#   | Minor | 3.219036e+08           |
+### Average Streams by Key and Mode:
+
+| Key  | Mode  | Number of Track     |
+|------|-------|------------------|
+| A    | Major | 4.019603e+08     |
+| A    | Minor | 4.173906e+08     |
+| A#   | Major | 6.275336e+08     |
+| A#   | Minor | 4.849231e+08     |
+| B    | Major | 4.363336e+08     |
+| B    | Minor | 5.825110e+08     |
+| C#   | Major | 6.285883e+08     |
+| C#   | Minor | 5.665252e+08     |
+| D    | Major | 5.720180e+08     |
+| D    | Minor | 3.425588e+08     |
+| D#   | Major | 6.819623e+08     |
+| D#   | Minor | 4.793647e+08     |
+| E    | Major | 7.605963e+08     |
+| E    | Minor | 5.083264e+08     |
+| F    | Major | 5.279311e+08     |
+| F    | Minor | 4.102836e+08     |
+| F#   | Major | 4.175450e+08     |
+| F#   | Minor | 5.954921e+08     |
+| G    | Major | 4.929813e+08     |
+| G    | Minor | 3.637593e+08     |
+| G#   | Major | 5.458044e+08     |
+| G#   | Minor | 3.219036e+08     |
+
+
 
 
 Since the data type of the streams is an object, using .to_numeric function to convert 'streams' column to numeric.
@@ -715,6 +726,10 @@ plt.show()
 
 Figure 5.0.
 ![image](https://github.com/user-attachments/assets/549710d0-62df-473d-b6d0-011bfdb8409e)
+
+The table and figure above illustrate the distribution of tracks by key and mode. A clear pattern emerges, showing that C# has the highest number of tracks, while D# is the least number of tracks used as key and mode.
+
+
 
 --- 
 🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
@@ -776,6 +791,8 @@ plt.show()
 
 Figure 6.0.
 ![image](https://github.com/user-attachments/assets/42f78d77-d798-44a3-9fed-b84c0b63df21)
+
+As observed in the previous section, 'Blinding Lights' by The Weeknd stands as the most-streamed track. In this section, we further highlight that The Weeknd also tops the list for the most appearances across playlists and charts, with a total of 148,071. Meanwhile, Taylor Swift ranks second with 137,078 appearances.
 
 ---
 ## CONCLUSION
